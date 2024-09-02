@@ -12,9 +12,9 @@
 
 @font-face {
     font-family: Ubuntu;
-    src: url(/assets/fonts/Ubuntu-Medium.ttf),
-        url(/assets/fonts/Ubuntu-Regular.ttf),
-        url(/assets/fonts/Ubuntu-Bold.ttf);
+    src: url(./assets/fonts/Ubuntu-Medium.ttf),
+        url(./assets/fonts/Ubuntu-Regular.ttf),
+        url(./assets/fonts/Ubuntu-Bold.ttf);
 }
 
 
@@ -51,7 +51,7 @@ body {
 .steps-sidebar {
     width: 30%;
     border-radius: 10px;
-    background: url(/assets/images/bg-sidebar-desktop.svg) bottom left;
+    background: url(./assets/images/bg-sidebar-desktop.svg) bottom left;
     color: white;
     padding: 50px 30px;
     position: relative;
