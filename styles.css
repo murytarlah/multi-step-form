@@ -1,0 +1,371 @@
+:root {
+    --marine-blue: hsl(213, 96%, 18%);
+    --purplish-blue: hsl(243, 100%, 62%);
+    --pastel-blue: hsl(228, 100%, 84%);
+    --light-blue: hsl(206, 94%, 87%);
+    --strawberry-red: hsl(354, 84%, 57%);
+    --cool-gray: hsl(231, 11%, 63%);
+    --light-gray: hsl(229, 24%, 87%);
+    --magnolia: hsl(217, 100%, 97%);
+    --alabaster: hsl(231, 100%, 99%);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    src: url(/assets/fonts/Ubuntu-Medium.ttf),
+        url(/assets/fonts/Ubuntu-Regular.ttf),
+        url(/assets/fonts/Ubuntu-Bold.ttf);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: Ubuntu, sans-serif;
+    transition: all 0.4s;
+}
+
+
+body {
+    background-color: var(--alabaster);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    display: flex;
+    width: 900px;
+    height: 598px;
+    padding: 15px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.steps-sidebar {
+    width: 30%;
+    border-radius: 10px;
+    background: url(/assets/images/bg-sidebar-desktop.svg) bottom left;
+    color: white;
+    padding: 50px 30px;
+    position: relative;
+}
+
+.steps {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.step {
+    display: grid;
+    font-size: 1.75rem;
+    column-gap: 15px;
+    grid-template-columns: repeat(4, minmax(40px, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.step>* {
+    align-self: center;
+}
+
+.step::before {
+    content: attr(data-step);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    grid-row: 1/ span 2;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bolder;
+}
+
+.step span {
+    opacity: 0.5;
+    grid-column: 2/ span 3;
+    font-size: 0.8rem;
+}
+
+.step p {
+    grid-column: 2/ span 3;
+}
+
+.step.active::before {
+    background-color: var(--light-blue);
+    border: 2px solid var(--light-blue);
+    color: var(--marine-blue);
+}
+
+.step-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-content {
+    width: 70%;
+    padding: 30px;
+}
+
+.form-step {
+    width: 80%;
+    margin: auto;
+    display: none;
+}
+
+.form-step.active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.form-step header {
+    padding: 40px 0px
+}
+
+.form-step header h2 {
+    font-size: 2rem;
+    color: var(--marine-blue);
+    margin-bottom: 10px;
+    word-spacing: 5px;
+}
+
+.form-step header p {
+    color: var(--cool-gray);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: var(--marine-blue);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    color: var(--marine-blue);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--purplish-blue);
+}
+
+
+.form-group input:required {
+    border-color: var(--strawberry-red);
+}
+
+.form-group input::placeholder {
+    color: var(--light-gray);
+}
+
+.plan-options,
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.plan-option span {
+    font-size: 1.2rem;
+    display: block;
+    color: var(--marine-blue);
+    margin-bottom: 10px;
+}
+
+.plan-option span p {
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: var(--cool-gray);
+}
+
+.plan-options input[type="radio"] {
+    display: none;
+}
+
+
+.plan-options input[type="radio"]:checked+.plan-option {
+    border-color: var(--purplish-blue);
+    background-color: var(--magnolia);
+}
+
+.plan-options label,
+.addon-option {
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.plan-options .plan-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 30%;
+    height: 170px;
+}
+
+.plan-options label:hover,
+.addon-option:hover {
+    border-color: var(--purplish-blue);
+}
+
+.billing-toggle {
+    display: flex;
+    gap: 10px;
+    background-color: var(--magnolia);
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+
+.billing-toggle input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Switch */
+
+.billing-toggle .switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 18px;
+}
+
+
+/* The slider */
+.billing-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.billing-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.billing-toggle input:checked+.slider, .billing-toggle input:checked+.monthly-billing {
+    background-color: var(--marine-blue);
+    color: var(--marine-blue);
+}
+
+.billing-toggle input:focus+.slider {
+    box-shadow: 0 0 1px var(--marine-blue);
+}
+
+.billing-toggle input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.billing-toggle .slider.round {
+    border-radius: 34px;
+}
+
+.billing-toggle .slider.round:before {
+    border-radius: 50%;
+}
+
+.billing-toggle .billing-toggle label {
+    cursor: pointer;
+}
+
+.billing-toggle label input {
+    display: none;
+}
+
+.summary-plan,
+.summary-addons,
+.total {
+    margin-bottom: 10px;
+}
+
+.btn-next,
+.btn-prev,
+.btn-confirm {
+    padding: 10px 20px;
+    align-self: flex-end;
+    border: none;
+    background-color: var(--marine-blue);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-next:hover {
+    background-color: var(--purplish-blue);
+}
+
+.btn-prev {
+    align-self: flex-start;
+    background-color: #aaa;
+    margin-right: 10px;
+}
+
+.change-link {
+    color: #5f67ec;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}

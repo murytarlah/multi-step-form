@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+	<title>Frontend Mentor | Multi-step form</title>
+
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<div class="form-container">
+		<!-- Sidebar -->
+		<div class="steps-sidebar">
+			<ul class="steps">
+				<li class="step active" data-step="1"> <span>Step 1</span>
+					<p>Your Info</p>
+				</li>
+				<li class="step" data-step="2"> <span>Step 2</span>
+					<p>Select Plan</p>
+				</li>
+				<li class="step" data-step="3"> <span>Step 3</span>
+					<p>Add-ons</p>
+				</li>
+				<li class="step" data-step="4"> <span>Step 4</span>
+					<p>Summary</p>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Form Content -->
+		<div class="form-content">
+			<!-- Step 1: Personal Info -->
+			<div class="form-step form-step-1 active">
+				<div class="form-step-content">
+
+					<header>
+						<h2>Personal Info</h2>
+						<p>Please provide your name, email address, and phone number.</p>
+					</header>
+					<form>
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" id="name" placeholder="e.g. Stephen King">
+						</div>
+						<div class="form-group">
+							<label for="email">Email Address</label>
+							<input type="email" id="email" placeholder="e.g. stephenking@lorem.com">
+						</div>
+						<div class="form-group">
+							<label for="phone">Phone Number</label>
+							<input type="tel" id="phone" placeholder="e.g. +1 234 567 890">
+						</div>
+					</form>
+				</div>
+				<button type="button" class="btn-next">Next Step</button>
+			</div>
+
+			<!-- Step 2: Select Plan -->
+			<div class="form-step form-step-2">
+				<div class="form-step-content">
+					<header>
+						<h2>Select your plan</h2>
+						<p>You have the option of monthly or yearly billing.</p>
+					</header>
+					<form>
+						<div class="plan-options">
+							<input type="radio" id="arcade" name="plan" value="arcade">
+							<label for="arcade" class="plan-option">
+								<div data-icon="1"><img src="/assets//images/icon-arcade.svg" alt="icon for acade plan">
+								</div>
+								<span>Arcade <p>$9/mo</p></span>
+							</label>
+							<input type="radio" id="advanced" name="plan" value="advanced">
+							<label for="advanced" class="plan-option">
+								<div data-icon="1"><img src="/assets//images/icon-advanced.svg"
+										alt="icon for advanced plan"></div>
+								<span>Advanced <p>$12/mo</p></span>
+							</label>
+							<input type="radio" id="pro" name="plan" value="pro">
+							<label for="pro" class="plan-option">
+								<div data-icon="1"><img src="/assets//images/icon-pro.svg" alt="icon for pro plan">
+								</div>
+								<span>Pro <p>$15/mo</p></span>
+							</label>
+						</div>
+						<div class="billing-toggle">
+							<label class="switch">
+								<span class="monthly-billing">Monthly</span>
+								<input type="checkbox" id="billing-type" name="billing">
+								<span class="slider round"></span>
+								<span class="yearly-billing">Yearly</span>
+							</label>
+						</div>
+					</form>
+				</div>
+				<div class="step-nav">
+					<button type="button" class="btn-prev">Go Back</button>
+					<button type="button" class="btn-next">Next Step</button>
+				</div>
+			</div>
+
+			<!-- Step 3: Pick Add-ons -->
+			<div class="form-step form-step-3">
+				<div class="form-step-content">
+					<header>
+						<h2>Pick add-ons</h2>
+						<p>Add-ons help enhance your gaming experience.</p>
+					</header>
+					<form>
+						<label class="addon-option">
+							<input type="checkbox" name="addons" value="online-service">
+							<span>Online service<br>+$1/mo</span>
+						</label>
+						<label class="addon-option">
+							<input type="checkbox" name="addons" value="larger-storage">
+							<span>Larger storage<br>+$2/mo</span>
+						</label>
+						<label class="addon-option">
+							<input type="checkbox" name="addons" value="customizable-profile">
+							<span>Customizable Profile<br>+$2/mo</span>
+						</label>
+					</form>
+				</div>
+				<div class="step-nav">
+					<button type="button" class="btn-prev">Go Back</button>
+					<button type="button" class="btn-next">Next Step</button>
+				</div>
+			</div>
+
+			<!-- Step 4: Summary -->
+			<div class="form-step form-step-4">
+				<header>
+					<h2>Finishing up</h2>
+					<p>Double-check everything looks OK before confirming.</p>
+				</header>
+				<div class="summary">
+					<!-- Dynamically add subscription and add-on selections here -->
+					<div class="summary-plan">
+						<h3>Arcade (Monthly)</h3>
+						<a href="#" class="change-link">Change</a>
+					</div>
+					<div class="summary-addons">
+						<div>Online service: +$1/mo</div>
+						<div>Larger storage: +$2/mo</div>
+					</div>
+					<div class="total">
+						<strong>Total: </strong><span>$12/mo</span>
+					</div>
+				</div>
+				<div class="step-nav">
+					<button type="button" class="btn-prev">Go Back</button>
+					<button type="button" class="btn-confirm">Confirm</button>
+				</div>
+			</div>
+
+			<!-- Step 5: Thank You -->
+			<div class="form-step form-step-5">
+				<h2>Thank you!</h2>
+				<p>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need
+					support,
+					please feel free to email us at support@loremgaming.com.</p>
+			</div>
+		</div>
+	</div>
+	<!-- 
+	<div class="attribution">
+		Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+		Coded by <a href="#">Your Name Here</a>.
+	</div> -->
+
+	<!-- Script for functionality -->
+	<script src="script.js"></script>
+</body>
+
+</html>
